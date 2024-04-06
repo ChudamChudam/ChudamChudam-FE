@@ -9,7 +9,7 @@ import { LetterCardCarousel } from '@/components/features/letter/select/letterCa
 const LetterSelectPage = () => {
   return (
     <div className='flex flex-col items-center h-dvh relative'>
-      <Header back />
+      <Header prev />
       <Description>편지지를 선택해주세요.</Description>
       <LetterCardCarousel />
       <LetterPreview />
