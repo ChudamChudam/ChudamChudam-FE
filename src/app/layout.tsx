@@ -16,9 +16,7 @@ export const RootLayout = ({
   return (
     <html lang='ko'>
       <body className={`${pretendard.variable}`}>
-        <div className='layout font-pretendard flex flex-col items-center w-full h-dvh p-[20px] pt-0'>
-          {children}
-        </div>
+        <div className='layout font-pretendard'>{children}</div>
       </body>
     </html>
   );
