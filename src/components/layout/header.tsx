@@ -2,27 +2,27 @@
 
 import { useRouter } from 'next/navigation';
 
-interface Header {
-  back?: boolean;
-  front?: boolean;
+interface HeaderProps {
+  prev?: boolean;
+  next?: boolean;
   download?: boolean;
   home?: boolean;
 }
 
-export const Header = ({ back, front, download, home }: Header) => {
+export const Header = ({ prev, next, download, home }: HeaderProps) => {
   // TODO: svg를 컴포넌트화 시키기
 
   const router = useRouter();
 
-  const goBack = () => {
+  const goPrevPage = () => {
     router.back();
   };
 
-  const goFront = () => {
+  const goNextPage = () => {
     router.push('/letter/write');
   };
 
-  const goHome = () => {
+  const goHomePage = () => {
     router.push('/');
   };
 
@@ -33,14 +33,14 @@ export const Header = ({ back, front, download, home }: Header) => {
   return (
     <header className='w-full h-[60px] flex items-center justify-between cursor-pointer'>
       <div className='w-[36px] h-full flex items-center justify-between'>
-        {back && (
+        {prev && (
           <svg
             width='11'
             height='20'
             viewBox='0 0 11 20'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
-            onClick={goBack}
+            onClick={goPrevPage}
           >
             <path
               d='M10.4194 1.07998C10.9271 1.58766 10.9271 2.41078 10.4194 2.91846L3.33867 9.99922L10.4194 17.08C10.9271 17.5877 10.9271 18.4108 10.4194 18.9185C9.91174 19.4261 9.08863 19.4261 8.58095 18.9185L0.580956 10.9185C0.0732752 10.4108 0.0732752 9.58766 0.580956 9.07998L8.58095 1.07998C9.08863 0.572298 9.91174 0.572298 10.4194 1.07998Z'
@@ -48,14 +48,14 @@ export const Header = ({ back, front, download, home }: Header) => {
             />
           </svg>
         )}
-        {front && (
+        {next && (
           <svg
             width='11'
             height='20'
             viewBox='0 0 11 20'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
-            onClick={goFront}
+            onClick={goNextPage}
           >
             <path
               d='M0.581322 1.07998C0.0736412 1.58766 0.0736413 2.41078 0.581322 2.91846L7.66208 9.99922L0.581323 17.08C0.0736419 17.5877 0.073642 18.4108 0.581323 18.9185C1.089 19.4261 1.91212 19.4261 2.4198 18.9185L10.4198 10.9185C10.9275 10.4108 10.9275 9.58766 10.4198 9.07998L2.4198 1.07998C1.91212 0.572298 1.089 0.572298 0.581322 1.07998Z'
@@ -92,7 +92,7 @@ export const Header = ({ back, front, download, home }: Header) => {
           viewBox='0 0 24 24'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
-          onClick={goHome}
+          onClick={goHomePage}
         >
           <path
             d='M19.5995 18.86V10.441C19.5995 10.2872 19.5643 10.1355 19.4966 9.99801C19.4289 9.86048 19.3306 9.74084 19.2095 9.64858L12.3845 4.44858C12.2157 4.32 12.0105 4.25049 11.7995 4.25049C11.5886 4.25049 11.3833 4.32 11.2145 4.44858L4.38951 9.64858C4.26842 9.74084 4.17014 9.86048 4.10245 9.99801C4.03475 10.1355 3.99951 10.2872 3.99951 10.441V18.86C3.99951 19.1227 4.10223 19.3746 4.28508 19.5604C4.46793 19.7461 4.71593 19.8505 4.97451 19.8505H8.87451C9.1331 19.8505 9.38109 19.7461 9.56394 19.5604C9.74679 19.3746 9.84951 19.1227 9.84951 18.86V15.8886C9.84951 15.6259 9.95223 15.374 10.1351 15.1882C10.3179 15.0025 10.5659 14.8981 10.8245 14.8981H12.7745C13.0331 14.8981 13.2811 15.0025 13.4639 15.1882C13.6468 15.374 13.7495 15.6259 13.7495 15.8886V18.86C13.7495 19.1227 13.8522 19.3746 14.0351 19.5604C14.2179 19.7461 14.4659 19.8505 14.7245 19.8505H18.6245C18.8831 19.8505 19.1311 19.7461 19.3139 19.5604C19.4968 19.3746 19.5995 19.1227 19.5995 18.86Z'

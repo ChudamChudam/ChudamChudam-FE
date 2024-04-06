@@ -7,7 +7,7 @@ import Link from "next/link";
 const OnboardingPage = () => {
   return (
     <main className="relative w-full h-dvh">
-      <Header back />
+      <Header prev />
       <Description>누구에게 편지를 쓰나요?!</Description>
 
       <OnboardingInputForm />
