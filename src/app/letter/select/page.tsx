@@ -16,7 +16,7 @@ const LetterSelectPage = () => {
   };
 
   return (
-    <div>
+    <div className='flex flex-col items-center h-dvh'>
       <Header back />
       <Description>편지지를 선택해주세요.</Description>
       <LetterCardCarousel />
