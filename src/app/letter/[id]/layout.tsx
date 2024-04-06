@@ -1,12 +1,12 @@
-import { Metadata } from "next";
-import { PropsWithChildren } from "react";
+import { Metadata } from 'next';
+import { PropsWithChildren } from 'react';
 
-import KakaoScript from "@/components/layout/KakaoScript";
-import { META } from "@/constants/metadata";
+import { META } from '@/constants/metadata';
+import KakaoScript from '@/components/layout/KakaoScript';
 
 export const metadata: Metadata = META;
 
-const TestResultPage = ({ children }: PropsWithChildren) => {
+const LetterDetailLayout = ({ children }: PropsWithChildren) => {
   return (
     <div>
       {children}
@@ -15,4 +15,4 @@ const TestResultPage = ({ children }: PropsWithChildren) => {
   );
 };
 
-export default TestResultPage;
+export default LetterDetailLayout;
