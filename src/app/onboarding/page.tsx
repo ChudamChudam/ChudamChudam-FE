@@ -12,7 +12,7 @@ const OnboardingPage = () => {
 
       <OnboardingInputForm />
 
-      <Link href="/onboarding">
+      <Link href="/letter/select">
         <Button variant="secondary" className="absolute bottom-5">
           다음
         </Button>

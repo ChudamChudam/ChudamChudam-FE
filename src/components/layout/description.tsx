@@ -1,4 +1,4 @@
-import { Typography } from "../ui/Typography";
+import { Typography } from "@/components/ui/Typography";
 
 export const Description = ({ children }: { children: React.ReactNode }) => {
   return (
