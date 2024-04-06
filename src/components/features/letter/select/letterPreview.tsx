@@ -4,10 +4,10 @@ import Image from 'next/image';
 
 import { useLetterStore } from '@/store/letterStore';
 
-export function LetterPreview() {
+export const LetterPreview = () => {
   // TODO: 편지지 디자인이 완성되면 수정하기
-
   const selected = useLetterStore((state) => state.selected);
+
   return (
     <div className='w-full h-full flex items-center justify-center'>
       {selected.length > 1 && (
@@ -26,4 +26,4 @@ export function LetterPreview() {
       )}
     </div>
   );
-}
+};
