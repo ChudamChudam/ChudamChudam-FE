@@ -4,6 +4,16 @@
 
 @layer base {
   :root {
+    --layout-max-w: 390px;
+    --layout-min-h: 100dvh;
+  }
+  .layout {
+    @apply mx-auto min-h-[var(--layout-min-h)] w-full max-w-[var(--layout-max-w)];
+  }
+}
+
+@layer base {
+  :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
