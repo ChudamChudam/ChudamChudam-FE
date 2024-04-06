@@ -3,7 +3,7 @@ import { Label } from "@/components/ui/label";
 
 const OnboardingInputForm = () => {
   return (
-    <section className="flex flex-col gap-8">
+    <section className="flex flex-col gap-8 pt-7">
       <div>
         <Label className="text-gray-500">TO.</Label>
         <Input placeholder="받는 이의 이름을 알려주세요." />
