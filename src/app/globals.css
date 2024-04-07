@@ -11,7 +11,18 @@
     @apply mx-auto min-h-[var(--layout-min-h)] w-full max-w-[var(--layout-max-w)] px-[20px];
   }
 }
-
+@font-face {
+  font-family: "chudom1";
+  src: url("../assets/fonts/Chudom/Chudom1.ttf");
+}
+@font-face {
+  font-family: "chudom2";
+  src: url("../assets/fonts/Chudom/Chudom2.ttf");
+}
+@font-face {
+  font-family: "chudom3";
+  src: url("../assets/fonts/Chudom/Chudom3.ttf");
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
