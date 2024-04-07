@@ -22,6 +22,7 @@ const OnboardingInputForm = () => {
           placeholder="받는 이의 이름을 알려주세요."
           value={receiver}
           onChange={(e) => updateReceiver(e.target.value)}
+          className="placeholder:text-gray-400 bg-second-sub border-0"
         />
       </div>
       <div>
@@ -30,6 +31,7 @@ const OnboardingInputForm = () => {
           value={sender}
           placeholder="당신의 이름을 알려주세요."
           onChange={(e) => updateSender(e.target.value)}
+          className="placeholder:text-gray-400 bg-second-sub border-0"
         />
       </div>
 
