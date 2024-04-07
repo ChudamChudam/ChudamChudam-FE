@@ -31,7 +31,7 @@ export const Header = ({ prev, next, download, home }: HeaderProps) => {
   };
 
   return (
-    <header className='w-full min-h-[60px] flex items-center justify-between cursor-pointer'>
+    <header className='w-full h-[60px] flex items-center justify-between cursor-pointer'>
       <div className='w-[36px] h-full flex items-center justify-between'>
         {prev && (
           <svg

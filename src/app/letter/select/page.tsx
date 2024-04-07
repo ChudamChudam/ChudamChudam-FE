@@ -9,7 +9,7 @@ import { StepProgressBar } from '@/components/layout/stepProgressBar';
 
 const LetterSelectPage = () => {
   return (
-    <div className='flex flex-col items-center h-dvh relative'>
+    <div className='w-full h-dvh relative'>
       <Header prev />
       <StepProgressBar />
       <Description>편지지를 선택해주세요.</Description>
