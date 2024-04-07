@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Card,
   CardContent,
@@ -40,13 +40,15 @@ const selectItem: Item[] = [
   { name: "스티커", value: "sticker" },
   { name: "배경", value: "background" },
 ];
+
 const Page = () => {
   const [tema, setTema] = useState<Item[]>([]);
-  const [select, setSelect] = useState([]);
-
+  const [select, setSelect] = useState(); //내가 선택하고 있는 아이템이 무엇인지.?
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+  console.log("select", select);
   return (
     <Card className="max-h-screen min-h-screen">
-      <CardHeader className=" flex flex-row w-full h-[60px] justify-between items-center">
+      <CardHeader className=" flex flex-row w-full h-[60px] justify-between items-center mt-11">
         <div className="flex gap-1">
           <Image className=" cursor-pointer" alt="img" src={Arrow_Left} />
           <Image className=" cursor-pointer" alt="img" src={Arrow_Right} />
@@ -55,22 +57,25 @@ const Page = () => {
           <Image className=" cursor-pointer" alt="img" src={UploadImg} />
         </div>
       </CardHeader>
-      <div></div>
-      <CardContent className="flex flex-col items-start w-full h-[448px] max-h-[448px] px-[18px] py-[20px] relative rounded-[8px] z-0">
+      <div className=" px-[20px]">
+        <span>추억을 담은 편지를 작성해보세요.</span>
+      </div>
+      <CardContent className="flex flex-col items-start w-full h-[448px] max-h-[448px] px-[18px] py-[20px] relative rounded-[8px] z-0 mt-[24px]">
         <div className="w-full max-w-[375px] z-10">
           <div className=" flex items-center justify-end w-full  z-10">
-            <div className=" rounded-[999px] w-[56px] h-[56px] flex items-center justify-center bg-[#BDBDBD]">
+            {/* <div className=" rounded-[999px] w-[56px] h-[56px] flex items-center justify-center bg-[#BDBDBD]">
               <Image
                 className=" cursor-pointer w-[21.45px] h-[21.45px]"
                 src={EditImg}
                 alt="img"
               />
-            </div>
+            </div> */}
           </div>
           <div className="w-full flex flex-row items-center justify-center mt-[20px]">
-            <div className="flex flex-col bg-[#fff] opacity-40 rounded-[8px] w-[296px] h-[263px] px-[16px] py-[12px]">
+            <div className="flex flex-col bg-[#fff] bg-opacity-75 rounded-[8px] w-[296px] h-[263px] px-[16px] py-[12px]">
               <span className=" text-black">To. E와I-DLE</span>
               <textarea
+                ref={inputRef}
                 placeholder="추억을 담은 편지를 작성해보세요"
                 maxLength={300}
                 className=" resize-none border-none h-[170px] mt-[13px] outline-none"
@@ -90,20 +95,22 @@ const Page = () => {
           className="w-full  px-[20px] py-[22px] flex-col justify-start"
         />
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex-col flex w-full gap-[8px]">
         <Drawer className="bg-white">
           <DrawerTrigger asChild>
-            <Button variant="outline">폰트설정하기</Button>
+            <Button variant="yellow">폰트설정하기</Button>
           </DrawerTrigger>
-          <DrawerContent className=" bg-gray-200 w-[375px] h-[290px] mx-auto">
+          <DrawerContent className=" bg-pink-sub w-[375px] h-[290px] mx-auto">
             <div className="mx-auto w-[375px]">
               {/* 버튼 클릭시 Drawer Content */}
               <DrawerHeader>
-                <div className="w-full flex ">
+                <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-gray-700" />
+                <div className="w-full flex mt-4">
                   {selectItem?.map((v: any, idx: number) => (
                     <div
+                      onClick={() => setSelect(v.value)}
                       key={"write" + idx}
-                      className=" w-[125px] h-[48px] flex items-center justify-center cursor-pointer px-5 border"
+                      className=" w-[125px] h-[48px] flex items-center justify-center cursor-pointer px-5"
                     >
                       <span>{v.name}</span>
                     </div>
@@ -114,19 +121,24 @@ const Page = () => {
                 {["폰트1", "폰트2", "폰트3"].map((v: any, idx: number) => (
                   <div
                     key={"font" + idx}
-                    className=" flex items-center justify-center w-24 h-24 bg-gray-100 cursor-pointer"
+                    className=" flex items-center justify-center w-24 h-24 bg-gray-100 bg-opacity-50 cursor-pointer"
                   >
                     {v}
                   </div>
                 ))}
               </div>
+
               <DrawerFooter>
-                <DrawerClose asChild></DrawerClose>
+                <DrawerClose asChild>
+                  <Button className=" mt-[14px] px-5" variant={"yellow"}>
+                    적용하기
+                  </Button>
+                </DrawerClose>
               </DrawerFooter>
             </div>
           </DrawerContent>
         </Drawer>
-        <Button variant="next">완료하기</Button>
+        <Button variant="next">완료</Button>
       </CardFooter>
     </Card>
   );
