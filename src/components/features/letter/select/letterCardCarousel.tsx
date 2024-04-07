@@ -23,22 +23,19 @@ export const LetterCardCarousel = () => {
       opts={{
         align: 'start',
       }}
-      className='w-full max-w-sm py-4'
+      className='py-4 w-auto'
     >
-      <CarouselContent>
-        {Array.from({ length: 3 }).map((_, index) => (
-          <CarouselItem
-            key={index}
-            className='basis-1/3'
-            onClick={() => {
-              handleClick(index.toString());
-            }}
-          >
-            <LetterCard>
-              <span className='text-3xl font-semibold'>{index + 1}</span>
-            </LetterCard>
-          </CarouselItem>
-        ))}
+      <CarouselContent className='flex gap-4'>
+        <CarouselItem className='basis-1/3'>
+          <LetterCard>
+            <UploadImage />
+          </LetterCard>
+        </CarouselItem>
+        <CarouselItem className='basis-1/3'>
+          <LetterCard>
+            <UploadImage />
+          </LetterCard>
+        </CarouselItem>
         <CarouselItem className='basis-1/3'>
           <LetterCard>
             <UploadImage />
