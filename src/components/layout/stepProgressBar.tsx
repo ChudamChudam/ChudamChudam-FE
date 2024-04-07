@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 
-import { PATH } from '@/constants/paths';
+import { PATH_LIST } from '@/constants/paths';
 
 export const StepProgressBar = () => {
   const pathname = usePathname();
@@ -11,18 +11,20 @@ export const StepProgressBar = () => {
   // TODO: /letter/write 페이지에 적용하기
 
   return (
-    <div className='w-full h-2 flex gap-2 mt-2 mb-7'>
-      {PATH.map((item) => {
+    <ul className='w-full h-2 flex gap-2 mt-2 mb-7'>
+      {PATH_LIST.map((path) => {
         return (
-          <div
-            key={item}
+          <li
+            key={path}
             className={clsx(
-              'bg-gray-400 rounded-full w-2 h-2',
-              pathname === item && 'animate-increase-width w-8 bg-[#FDD16F]'
+              'h-2',
+              pathname !== path && 'bg-gray-400 rounded-full w-2',
+              pathname === path &&
+                'animate-increase-width w-8 bg-[#FDD16F] rounded-lg'
             )}
           />
         );
       })}
-    </div>
+    </ul>
   );
 };
