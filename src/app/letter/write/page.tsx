@@ -67,7 +67,7 @@ const Page = () => {
   const handleSubmit = async () => {};
 
   return (
-    <main className="relative">
+    <main className="relative w-full h-dvh">
       <Header prev />
       <StepProgressBar />
       <Description>추억을 담은 편지를 작성해보세요.</Description>
