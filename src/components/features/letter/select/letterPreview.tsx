@@ -13,14 +13,14 @@ export const LetterPreview = () => {
       {selected.length > 1 && (
         <Image
           alt='preview'
-          height='218'
-          width='164'
-          className='rounded-lg flex items-center justify-center object-cover w-[164px] h-[218px]'
+          height='244'
+          width='324'
+          className='rounded-lg flex items-center justify-center object-cover w-[244px] h-[324px]'
           src={selected}
         />
       )}
       {selected.length === 1 && (
-        <div className='w-[164px] h-[218px] rounded-lg flex items-center justify-center bg-gray-200 text-xl'>
+        <div className='w-[244px] h-[324px] rounded-lg flex items-center justify-center bg-gray-200 text-xl'>
           {+selected + 1}
         </div>
       )}

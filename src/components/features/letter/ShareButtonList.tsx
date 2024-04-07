@@ -10,7 +10,7 @@ const ShareButtonList = () => {
   };
   return (
     <div className='flex flex-col gap-2 pt-5 w-full'>
-      <Button onClick={handleCopyClipboard} variant='share'>
+      <Button onClick={handleCopyClipboard} variant='yellow'>
         링크 공유
       </Button>
       <KakaoShareButton />
