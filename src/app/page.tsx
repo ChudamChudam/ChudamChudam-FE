@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Typography } from "@/components/ui/Typography";
-import Link from "next/link";
+import { Button } from '@/components/ui/button';
+import { Typography } from '@/components/ui/Typography';
+import Link from 'next/link';
 
 const HomePage = () => {
   return (
