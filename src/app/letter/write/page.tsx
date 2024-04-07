@@ -1,41 +1,29 @@
 "use client";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { useRef, useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
-  DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
 import Tema from "@/assets/images/letter/tema1.png";
 
-import Arrow_Left from "@/assets/images/Arrow_left.svg";
-import Arrow_Right from "@/assets/images/Arrow_right.svg";
-import UploadImg from "@/assets/images/upload.svg";
-import EditImg from "@/assets/images/letter/edit.svg";
 import Image from "next/image";
 
-import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/header";
+import { Button } from "@/components/ui/button";
 import {
   FontItem,
   FontItemType,
   ItemType,
   SelectItem,
 } from "@/constants/write";
+import Link from "next/link";
 
 const Page = () => {
   const [select, setSelect] = useState("font"); //내가 선택하고 있는 아이템이 무엇인지.?
@@ -56,10 +44,6 @@ const Page = () => {
   const [letter, setLetter] = useState<[]>([]);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  /**
-   *@function handleItemClick
-   *@description 아이템 클릭 핸들러
-   */
   const handleItemClick = (
     item: { name: string; value: string },
     type: string
@@ -76,11 +60,8 @@ const Page = () => {
         break;
     }
   };
-  /**
-   *@function setRes
-   *@description 최종 실행 함수
-   */
-  const setRes = async () => {};
+
+  const handleSubmit = async () => {};
 
   return (
     <Card className="max-h-screen min-h-screen">
@@ -141,7 +122,7 @@ const Page = () => {
         />
       </CardContent>
       <CardFooter className="flex-col flex w-full gap-[8px]">
-        <Drawer className="bg-white">
+        <Drawer>
           <DrawerTrigger asChild>
             <Button variant="yellow">폰트설정하기</Button>
           </DrawerTrigger>
@@ -207,9 +188,11 @@ const Page = () => {
             </div>
           </DrawerContent>
         </Drawer>
-        <Button onClick={() => setRes()} variant="next">
-          완료
-        </Button>
+        <Link href={`/letter/id`} className="w-full">
+          <Button onClick={() => handleSubmit()} variant="next">
+            완료
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );
