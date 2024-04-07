@@ -1,11 +1,10 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/Input";
-import { Label } from "@/components/ui/label";
-import { useLetterStore } from "@/store/letterStore";
-import clsx from "clsx";
-import { useRouter } from "next/navigation";
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/Input';
+import { Label } from '@/components/ui/label';
+import { useLetterStore } from '@/store/letterStore';
+import { useRouter } from 'next/navigation';
 
 const OnboardingInputForm = () => {
   const router = useRouter();
@@ -36,12 +35,9 @@ const OnboardingInputForm = () => {
 
       <Button
         variant="secondary"
-        className={clsx(
-          `absolute bottom-5 w-full`,
-          !isAllValid && "cursor-not-allowed opacity-50"
-        )}
+        className={`absolute bottom-5 w-full ${!isAllValid && 'cursor-not-allowed opacity-50'}`}
         onClick={() => {
-          isAllValid && router.push("letter/select");
+          isAllValid && router.push('letter/select');
         }}
       >
         다음
