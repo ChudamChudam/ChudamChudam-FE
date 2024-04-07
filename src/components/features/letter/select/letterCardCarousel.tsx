@@ -37,6 +37,8 @@ export const LetterCardCarousel = () => {
             <UploadImage />
           </LetterCard>
         </CarouselItem>
+        {/* dummy */}
+        <CarouselItem className="basis-10"></CarouselItem>
       </CarouselContent>
     </Carousel>
   );
