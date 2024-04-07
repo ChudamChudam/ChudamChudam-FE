@@ -3,7 +3,7 @@ import axios, { type AxiosResponse } from 'axios';
 import { env } from './env';
 
 const instance = axios.create({
-    //TODO : 백엔드와 논의후 env.local baseAPIURL 추가 해야합니다. 현재 ""로 되어있어요
+  //TODO : 백엔드와 논의후 env.local baseAPIURL 추가 해야합니다. 현재 ""로 되어있어요
   baseURL: env.BASE_API_URL,
   headers: {
     'Content-Type': 'application/json;charset=UTF-8',
@@ -35,9 +35,8 @@ instance.interceptors.response.use(
   },
 );
 
-
 export const get = <T>(...args: Parameters<typeof instance.get>) => {
-  return instance.get<T, AxiosResponse<T>>(...args)
+  return instance.get<T, AxiosResponse<T>>(...args);
 };
 
 export const post = <T>(...args: Parameters<typeof instance.post>) => {
