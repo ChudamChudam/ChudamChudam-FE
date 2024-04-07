@@ -9,7 +9,7 @@ export const LetterPreview = () => {
   const selected = useLetterStore((state) => state.selected);
 
   return (
-    <div className='w-full h-full flex items-center justify-center'>
+    <div className='w-full grow flex items-center justify-center mb-[72px]'>
       {selected.length > 1 && (
         <Image
           alt='preview'
