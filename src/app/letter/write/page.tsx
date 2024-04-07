@@ -28,7 +28,6 @@ import { post } from '@/lib/axios';
 
 const Page = () => {
   const router = useRouter();
-
   const ref = useRef<HTMLDivElement>(null); // 이미지 찍을 div ref
   const [select, setSelect] = useState('font'); //내가 선택하고 있는 아이템이 무엇인지.?
   const [fontItem, setFontItem] = useState<{ name: string; value: string }>({
