@@ -1,1 +1,5 @@
-export const PATH_LIST = ['/onboarding', '/letter/select', '/letter/write'];
+export const PATH_LIST = [
+  '/onboarding',
+  '/letter/select',
+  '/letter/write',
+] as const;
