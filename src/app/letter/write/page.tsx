@@ -71,7 +71,7 @@ const Page = () => {
       <Header prev />
       <StepProgressBar />
       <Description>추억을 담은 편지를 작성해보세요.</Description>
-      <Card className="max-h-screen min-h-screen mt-6">
+      <Card className="mt-6">
         <CardContent className="flex flex-col items-start w-full h-[448px] max-h-[448px] px-[18px] py-[20px] relative rounded-[8px] z-0 mt-[24px]">
           <div className="w-full max-w-[375px] z-10">
             <div className=" flex items-center justify-end w-full  z-10">
