@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
@@ -19,6 +19,22 @@ const config = {
     },
     extend: {
       colors: {
+        pink: {
+          main: "#E8CCF9",
+          sub: "#FCF7FF",
+        },
+        second: {
+          main: "#FDD16F",
+          sub: "FFF2D4",
+        },
+        blue: {
+          main: "#AFD4F9",
+          sub: "#EFF6FE",
+        },
+        green: {
+          main: "#D5DF7C",
+          sub: "#F3F8C8",
+        },
         gray: {
           100: "#F2F2F2",
           200: "#E0E0E0",
@@ -68,7 +84,7 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        pretendard: ['var(--font-pretendard)'],
+        pretendard: ["var(--font-pretendard)"],
       },
       keyframes: {
         "accordion-down": {
