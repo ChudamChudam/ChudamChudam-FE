@@ -9,7 +9,7 @@ export const LetterFace = ({ side }: { side: 'front' | 'back' }) => {
       className={clsx(
         styles.card__face,
         side === 'front' && styles['card__face--front'],
-        side === 'back' && styles['card__face--back']
+        side === 'back' && styles['card__face--back'],
       )}
     >
       {side}
