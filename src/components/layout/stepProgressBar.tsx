@@ -15,6 +15,7 @@ export const StepProgressBar = () => {
       {PATH.map((item) => {
         return (
           <div
+            key={pathname}
             className={clsx(
               'bg-gray-400 rounded-full w-2 h-2',
               pathname === item && 'animate-increase-width w-8 bg-[#FDD16F]'
