@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import {
   Card,
   CardContent,
@@ -29,31 +29,15 @@ import EditImg from "@/assets/images/letter/edit.svg";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
-type ItemTypes = "background" | "font" | "sticker";
-type fontItemTypes = "chudom1" | "chudom2" | "chudom3";
-type StickerItemTypes = "";
-interface ItemType {
-  name: string;
-  value: ItemTypes;
-}
-interface fontItemType {
-  name: string;
-  value: fontItemTypes;
-}
-
-const SelectItem: ItemType[] = [
-  { name: "폰트", value: "font" },
-  { name: "스티커", value: "sticker" },
-  { name: "배경", value: "background" },
-];
-const FontItem: fontItemType[] = [
-  { name: "추담추담", value: "chudom1" },
-  { name: "추담추담2", value: "chudom2" },
-  { name: "추담추담3", value: "chudom3" },
-];
+import { Header } from "@/components/layout/header";
+import {
+  FontItem,
+  FontItemType,
+  ItemType,
+  SelectItem,
+} from "@/constants/write";
 
 const Page = () => {
-  const [tema, setTema] = useState<ItemType[]>([]);
   const [select, setSelect] = useState("font"); //내가 선택하고 있는 아이템이 무엇인지.?
   const [fontItem, setFontItem] = useState<{ name: string; value: string }>({
     name: "",
@@ -69,6 +53,7 @@ const Page = () => {
       value: "",
     }
   );
+  const [letter, setLetter] = useState<[]>([]);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   /**
@@ -81,7 +66,6 @@ const Page = () => {
   ) => {
     switch (type) {
       case "font":
-        console.log("실행중입니다.");
         setFontItem(item);
         break;
       case "sticker":
@@ -92,18 +76,31 @@ const Page = () => {
         break;
     }
   };
-  console.log("select", select);
+  /**
+   *@function setRes
+   *@description 최종 실행 함수
+   */
+  const setRes = async () => {};
+
   return (
     <Card className="max-h-screen min-h-screen">
-      <CardHeader className=" flex flex-row w-full h-[60px] justify-between items-center mt-11">
-        <div className="flex gap-1">
-          <Image className=" cursor-pointer" alt="img" src={Arrow_Left} />
-          <Image className=" cursor-pointer" alt="img" src={Arrow_Right} />
+      <Header prev>
+        {/* <div className="flex gap-1">
+          <Image
+            className=" cursor-pointer"
+            alt="arrow-left"
+            src={Arrow_Left}
+          />
+          <Image
+            className=" cursor-pointer"
+            alt="arrow-right"
+            src={Arrow_Right}
+          />
         </div>
         <div>
-          <Image className=" cursor-pointer" alt="img" src={UploadImg} />
-        </div>
-      </CardHeader>
+          <Image className=" cursor-pointer" alt="upload" src={UploadImg} />
+        </div> */}
+      </Header>
       <div className=" px-[20px]">
         <span>추억을 담은 편지를 작성해보세요.</span>
       </div>
@@ -118,6 +115,7 @@ const Page = () => {
               />
             </div> */}
           </div>
+
           <div className="w-full flex flex-row items-center justify-center mt-[20px]">
             <div className="flex flex-col bg-[#fff] bg-opacity-75 rounded-[8px] w-[296px] h-[263px] px-[16px] py-[12px]">
               <span className=" text-black">To. E와I-DLE</span>
@@ -166,7 +164,7 @@ const Page = () => {
               </DrawerHeader>
               <div className=" w-full flex flex-wrap px-5 pt-4 gap-5">
                 {select === "font" &&
-                  FontItem.map((v: fontItemType, idx: number) => (
+                  FontItem.map((v: FontItemType, idx: number) => (
                     <div
                       onClick={() => handleItemClick(v, "font")}
                       key={v.name + idx + 1}
@@ -209,7 +207,9 @@ const Page = () => {
             </div>
           </DrawerContent>
         </Drawer>
-        <Button variant="next">완료</Button>
+        <Button onClick={() => setRes()} variant="next">
+          완료
+        </Button>
       </CardFooter>
     </Card>
   );
