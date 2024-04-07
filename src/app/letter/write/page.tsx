@@ -30,21 +30,68 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 type ItemTypes = "background" | "font" | "sticker";
-
-interface Item {
+type fontItemTypes = "chudom1" | "chudom2" | "chudom3";
+type StickerItemTypes = "";
+interface ItemType {
   name: string;
   value: ItemTypes;
 }
-const selectItem: Item[] = [
+interface fontItemType {
+  name: string;
+  value: fontItemTypes;
+}
+
+const SelectItem: ItemType[] = [
   { name: "폰트", value: "font" },
   { name: "스티커", value: "sticker" },
   { name: "배경", value: "background" },
 ];
+const FontItem: fontItemType[] = [
+  { name: "추담추담", value: "chudom1" },
+  { name: "추담추담2", value: "chudom2" },
+  { name: "추담추담3", value: "chudom3" },
+];
 
 const Page = () => {
-  const [tema, setTema] = useState<Item[]>([]);
-  const [select, setSelect] = useState(); //내가 선택하고 있는 아이템이 무엇인지.?
+  const [tema, setTema] = useState<ItemType[]>([]);
+  const [select, setSelect] = useState("font"); //내가 선택하고 있는 아이템이 무엇인지.?
+  const [fontItem, setFontItem] = useState<{ name: string; value: string }>({
+    name: "",
+    value: "",
+  });
+  const [sticker, setSticker] = useState<{ name: string; value: string }>({
+    name: "",
+    value: "",
+  });
+  const [background, setBackground] = useState<{ name: string; value: string }>(
+    {
+      name: "",
+      value: "",
+    }
+  );
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  /**
+   *@function handleItemClick
+   *@description 아이템 클릭 핸들러
+   */
+  const handleItemClick = (
+    item: { name: string; value: string },
+    type: string
+  ) => {
+    switch (type) {
+      case "font":
+        console.log("실행중입니다.");
+        setFontItem(item);
+        break;
+      case "sticker":
+        alert("준비중입니다.");
+        break;
+      case "background":
+        alert("준비중입니다.");
+        break;
+    }
+  };
   console.log("select", select);
   return (
     <Card className="max-h-screen min-h-screen">
@@ -106,10 +153,10 @@ const Page = () => {
               <DrawerHeader>
                 <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-gray-700" />
                 <div className="w-full flex mt-4">
-                  {selectItem?.map((v: any, idx: number) => (
+                  {SelectItem?.map((v: ItemType, idx: number) => (
                     <div
                       onClick={() => setSelect(v.value)}
-                      key={"write" + idx}
+                      key={v.name + idx + 1}
                       className=" w-[125px] h-[48px] flex items-center justify-center cursor-pointer px-5"
                     >
                       <span>{v.name}</span>
@@ -118,14 +165,38 @@ const Page = () => {
                 </div>
               </DrawerHeader>
               <div className=" w-full flex flex-wrap px-5 pt-4 gap-5">
-                {["폰트1", "폰트2", "폰트3"].map((v: any, idx: number) => (
-                  <div
-                    key={"font" + idx}
-                    className=" flex items-center justify-center w-24 h-24 bg-gray-100 bg-opacity-50 cursor-pointer"
-                  >
-                    {v}
-                  </div>
-                ))}
+                {select === "font" &&
+                  FontItem.map((v: fontItemType, idx: number) => (
+                    <div
+                      onClick={() => handleItemClick(v, "font")}
+                      key={v.name + idx + 1}
+                      className={`flex items-center justify-center w-24 h-24 bg-gray-100 bg-opacity-50 cursor-pointer font-${v.value}`}
+                    >
+                      {v.name}
+                    </div>
+                  ))}
+                {select === "sticker" &&
+                  ["스티커1", "스티커2", "스티커3"].map(
+                    (v: string, idx: number) => (
+                      <div
+                        onClick={() => alert("준비중입니다.")}
+                        key={v + idx + 1}
+                        className=" flex items-center justify-center w-24 h-24 bg-gray-100 bg-opacity-50 cursor-pointer"
+                      >
+                        {v}
+                      </div>
+                    )
+                  )}
+                {select === "background" &&
+                  ["배경1", "배경2", "배경3"].map((v: string, idx: number) => (
+                    <div
+                      onClick={() => alert("준비중입니다.")}
+                      key={v + idx}
+                      className=" flex items-center justify-center w-24 h-24 bg-gray-100 bg-opacity-50 cursor-pointer"
+                    >
+                      {v}
+                    </div>
+                  ))}
               </div>
 
               <DrawerFooter>

@@ -85,6 +85,9 @@ const config = {
       },
       fontFamily: {
         pretendard: ["var(--font-pretendard)"],
+        chudom1: ["chudom1"],
+        chudom2: ["chudom2"],
+        chudom3: ["chudom3"],
       },
       keyframes: {
         "accordion-down": {
