@@ -1,10 +1,6 @@
 'use client';
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { useLetterStore } from '@/store/letterStore';
 import { LetterCard } from '@/components/features/letter/select/letterCard';
 import { UploadImage } from '@/components/features/letter/select/uploadImage';
@@ -23,20 +19,20 @@ export const LetterCardCarousel = () => {
       opts={{
         align: 'start',
       }}
-      className='py-4 w-auto'
+      className="py-6"
     >
-      <CarouselContent className='flex gap-4'>
-        <CarouselItem className='basis-1/3'>
+      <CarouselContent className="-ml-4">
+        <CarouselItem className="pl-4">
           <LetterCard>
             <UploadImage />
           </LetterCard>
         </CarouselItem>
-        <CarouselItem className='basis-1/3'>
+        <CarouselItem className="pl-4">
           <LetterCard>
             <UploadImage />
           </LetterCard>
         </CarouselItem>
-        <CarouselItem className='basis-1/3'>
+        <CarouselItem className="pl-4">
           <LetterCard>
             <UploadImage />
           </LetterCard>
