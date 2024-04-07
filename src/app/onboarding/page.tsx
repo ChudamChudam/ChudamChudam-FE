@@ -1,24 +1,16 @@
-import OnboardingInputForm from '@/components/features/onboarding/OnboardingInputForm';
-import { Description } from '@/components/layout/description';
-import { Header } from '@/components/layout/header';
-import { StepProgressBar } from '@/components/layout/stepProgressBar';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import OnboardingInputForm from "@/components/features/onboarding/OnboardingInputForm";
+import { Description } from "@/components/layout/description";
+import { Header } from "@/components/layout/header";
+import { StepProgressBar } from "@/components/layout/stepProgressBar";
 
 const OnboardingPage = () => {
   return (
-    <main className='relative w-full h-dvh'>
+    <main className="relative w-full h-dvh">
       <Header prev />
       <StepProgressBar />
       <Description>누구에게 편지를 쓰나요?!</Description>
 
       <OnboardingInputForm />
-
-      <Link href='/letter/select'>
-        <Button variant='secondary' className='absolute bottom-5'>
-          다음
-        </Button>
-      </Link>
     </main>
   );
 };
