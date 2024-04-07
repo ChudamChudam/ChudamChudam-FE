@@ -14,9 +14,9 @@ export const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang='ko'>
+    <html lang="ko">
       <body className={`${pretendard.variable}`}>
-        <div className='layout font-pretendard'>{children}</div>
+        <div className="layout font-pretendard">{children}</div>
       </body>
     </html>
   );
