@@ -1,7 +1,7 @@
-import OnboardingInputForm from "@/components/features/onboarding/OnboardingInputForm";
-import { Description } from "@/components/layout/description";
-import { Header } from "@/components/layout/header";
-import { StepProgressBar } from "@/components/layout/stepProgressBar";
+import OnboardingInputForm from '@/components/features/onboarding/OnboardingInputForm';
+import { Description } from '@/components/layout/description';
+import { Header } from '@/components/layout/header';
+import { StepProgressBar } from '@/components/layout/stepProgressBar';
 
 const OnboardingPage = () => {
   return (
