@@ -19,7 +19,7 @@ const LetterSelectPage = () => {
       <LetterCardCarousel />
       <LetterPreview />
       <Link href="/letter/write" className="absolute bottom-5 w-full">
-        <Button variant="next">다음</Button>
+        <Button variant="green">다음</Button>
       </Link>
     </div>
   );
