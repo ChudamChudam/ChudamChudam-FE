@@ -7,6 +7,8 @@ type LetterState = {
   setReceiver: (value: string) => void;
   setSender: (value: string) => void;
   setSelected: (image: string) => void;
+  url: string;
+  setUrl: (e: string) => void;
 };
 
 export const useLetterStore = create<LetterState>()((set) => ({
@@ -16,4 +18,6 @@ export const useLetterStore = create<LetterState>()((set) => ({
   setSender: (value) => set(() => ({ sender: value })),
   receiver: '',
   setReceiver: (value) => set(() => ({ receiver: value })),
+  url: '',
+  setUrl: (e) => set(() => ({ url: e })),
 }));

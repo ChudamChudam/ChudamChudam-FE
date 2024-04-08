@@ -8,7 +8,7 @@ import { Scene } from '@/components/features/letter/flip/scene';
 import { useGetLetterResult } from '@/hooks/useGetLetterResult';
 
 export const LetterFlip = () => {
-  const { data } = useGetLetterResult(1);
+  // const { data } = useGetLetterResult(1);
 
   const [isFront, setIsFront] = useState(true);
 
@@ -20,7 +20,7 @@ export const LetterFlip = () => {
     <Scene>
       <Letter handleFlip={handleFlip} isFront={isFront}>
         <LetterFace side="front" />
-        <LetterFace side="back" imageUrl={data?.letterImageUrl} />
+        <LetterFace side="back" />
       </Letter>
     </Scene>
   );
