@@ -1,16 +1,15 @@
 'use client';
 
-import Image from 'next/image';
-import { ChangeEventHandler, useRef, useState } from 'react';
 import { toPng } from 'html-to-image';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { ChangeEventHandler, useRef, useState } from 'react';
 
-import { useLetterStore } from '@/store/letterStore';
-import BottomSheet from '../drawer/BottomSheet';
 import { Button } from '@/components/ui/button';
-import { post } from '@/lib/axios';
-import localFont from 'next/font/local';
+import { useLetterStore } from '@/store/letterStore';
 import clsx from 'clsx';
+import localFont from 'next/font/local';
+import BottomSheet from '../drawer/BottomSheet';
 
 const myFont = localFont({
   src: './gom.ttf',
@@ -38,7 +37,7 @@ export const Write = () => {
   const handleItemClick = (item: { name: string; value: string }, type: string) => {
     switch (type) {
       case 'font':
-        setFontItem(item);
+        alert('준비중입니다.');
         break;
       case 'sticker':
         alert('준비중입니다.');
