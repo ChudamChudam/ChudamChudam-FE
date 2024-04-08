@@ -22,6 +22,7 @@ export const Write = () => {
   const selected = useLetterStore((state) => state.selected);
   const sender = useLetterStore((state) => state.sender);
   const receiver = useLetterStore((state) => state.receiver);
+  const setUrl = useLetterStore((state) => state.setUrl);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const resultRef = useRef<HTMLDivElement>(null);
   const [length, setLength] = useState(0);
@@ -54,27 +55,30 @@ export const Write = () => {
     setLength(event.target.value.length);
   };
 
-  function base64toFile(base_data: any, filename: string) {
-    let arr = base_data.split(','),
-      mime = arr[0].match(/:(.*?);/)[1],
-      bstr = atob(arr[1]),
-      n = bstr.length,
-      u8arr = new Uint8Array(n);
+  const b64toFile = (b64Data: string, filename: string) => {
+    const bstr = window.atob(b64Data);
+    let n = bstr.length;
+    const u8arr = new Uint8Array(n);
 
-    while (n--) {
+    while (n > 0) {
+      n -= 1;
       u8arr[n] = bstr.charCodeAt(n);
     }
 
-    return new File([u8arr], filename, { type: mime });
-  }
+    return new File([u8arr], filename, { type: 'image/png' });
+  };
 
   const handleSubmit = async () => {
     if (resultRef.current === null) {
       return;
     }
     const dataUrl = await toPng(resultRef.current, { includeQueryParams: true });
-    console.log(dataUrl);
-    // const file = base64toFile(dataUrl, 'chudom.img.png');
+    setUrl(dataUrl);
+    router.push(`/letter/test`);
+    // console.log(dataUrl);
+
+    // const file = b64toFile(dataUrl, 'chudom.img.png');
+
     // let formData = new FormData();
     // formData.append('letterImage', file);
     // const submitRes = await post<FormData>(
@@ -93,7 +97,7 @@ export const Write = () => {
     // if (submitRes) {
     //   router.push(`/letter/${submitRes.data?.['letterId']}`);
     // }
-    router.push('/letter/test');
+    // router.push('/letter/test');
   };
 
   return (
