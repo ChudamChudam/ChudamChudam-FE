@@ -9,7 +9,6 @@ const OnboardingPage = () => {
       <Header prev />
       <StepProgressBar />
       <Description>누구에게 편지를 쓰나요?!</Description>
-
       <OnboardingInputForm />
     </main>
   );
