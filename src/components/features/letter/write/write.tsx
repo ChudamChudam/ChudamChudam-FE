@@ -81,7 +81,6 @@ export const Write = () => {
 
     // let formData = new FormData();
     // formData.append('letterImage', file);
-
     // const submitRes = await post<FormData>(
     //   '/letter',
     //   {

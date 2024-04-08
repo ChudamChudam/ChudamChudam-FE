@@ -3,8 +3,11 @@
 import KakaoShareButton from '@/components/features/letter/KakaoShareButton';
 import { Button } from '@/components/ui/button';
 import { shareLink } from '@/utils/share';
+import { useSearchParams } from 'next/navigation';
 
 const ShareButtonList = () => {
+  const params = useSearchParams();
+  const isEnterBySharedUrl = params.get('share');
   const handleCopyClipboard = () => {
     shareLink({ url: `${location.href}?share=true` });
   };
@@ -18,12 +21,14 @@ const ShareButtonList = () => {
       <Button variant="yellow" onClick={handleDownload} className="cursor-not-allowed">
         저장하기
       </Button>
-      <div className="flex gap-2 ">
-        <Button onClick={handleCopyClipboard} variant="green">
-          링크 공유
-        </Button>
-        <KakaoShareButton />
-      </div>
+      {isEnterBySharedUrl && (
+        <div className="flex gap-2 ">
+          <Button onClick={handleCopyClipboard} variant="green">
+            링크 공유
+          </Button>
+          <KakaoShareButton />
+        </div>
+      )}
     </div>
   );
 };

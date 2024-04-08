@@ -4,8 +4,8 @@ import { LetterCardCarousel } from '@/components/features/letter/select/letterCa
 import { LetterPreview } from '@/components/features/letter/select/letterPreview';
 import { Description } from '@/components/layout/description';
 import { Header } from '@/components/layout/header';
-import { Button } from '@/components/ui/button';
 import { StepProgressBar } from '@/components/layout/stepProgressBar';
+import { Button } from '@/components/ui/button';
 
 const LetterSelectPage = () => {
   return (
