@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { ChangeEventHandler, useRef, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
+import { post } from '@/lib/axios';
 import { useLetterStore } from '@/store/letterStore';
 import clsx from 'clsx';
 import localFont from 'next/font/local';
@@ -72,22 +73,12 @@ export const Write = () => {
       return;
     }
     const dataUrl = await toPng(resultRef.current, { includeQueryParams: true });
-    console.log(dataUrl);
-    // const file = base64toFile(dataUrl, 'chudom.img.png');
-    // let formData = new FormData();
-    // formData.append('letterImage', file);
-    // const submitRes = await post<FormData>(
-    //   '/letter',
-    //   {
-    //     formData,
-    //   },
-    //   {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data',
-    //     },
-    //   },
-    // );
-    // console.log(submitRes);
+    const file = base64toFile(dataUrl, 'chudom.img.png');
+
+    const submitRes = await post<FormData>('/letter', {
+      file,
+    });
+    console.log(submitRes);
     // TODO
     // if (submitRes) {
     //   router.push(`/letter/${submitRes.data?.['letterId']}`);
