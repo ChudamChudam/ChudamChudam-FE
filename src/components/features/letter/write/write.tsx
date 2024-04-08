@@ -115,7 +115,7 @@ export const Write = () => {
           <textarea
             className="w-full h-[166px] py-2 px-4 outline-none placeholder:text-gray-500 resize-none"
             placeholder="추억을 담은 편지를 작성해보세요"
-            maxLength={150}
+            maxLength={200}
             ref={inputRef}
             onChange={handleChange}
           />
