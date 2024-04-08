@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import styles from '@/components/features/letter/flip/letterFlip.module.css';
 import Image from 'next/image';
+import Envelop from '@/assets/images/letter/envelop.svg';
 
 interface LetterFaceProps {
   side: 'front' | 'back';
@@ -19,9 +20,9 @@ export const LetterFace = ({ side, imageUrl }: LetterFaceProps) => {
       )}
     >
       {side === 'back' ? (
-        <Image width={350} height={448} src={imageUrl as string} alt="letter_result_image" />
+        <Image width={336} height={448} src={imageUrl as string} alt="letter_result_image" />
       ) : (
-        side
+        <Envelop />
       )}
     </div>
   );

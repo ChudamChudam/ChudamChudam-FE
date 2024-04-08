@@ -10,10 +10,7 @@ interface LetterProps {
 
 export const Letter = ({ children, handleFlip, isFront }: LetterProps) => {
   return (
-    <div
-      onClick={handleFlip}
-      className={clsx(styles.card, !isFront && styles['is-flipped'])}
-    >
+    <div onClick={handleFlip} className={clsx(styles.card, !isFront && styles['is-flipped'])}>
       {children}
     </div>
   );
