@@ -2,7 +2,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 export const LetterCard = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Card className="box-border w-[128px] h-[128px] hover:bg-gray-200 cursor-pointer border-gray-300 p-0">
+    <Card className="w-32 h-32 cursor-pointer border-dashed border-gray-600 bg-transparent box-border">
       <CardContent className="flex w-full h-full justify-center items-center p-0">
         {children}
       </CardContent>
