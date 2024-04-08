@@ -14,7 +14,7 @@ export const useGetLetterResult = (id: number) => {
     };
 
     fetchLetterResult();
-  }, []);
+  }, [id]);
 
   return { data };
 };
