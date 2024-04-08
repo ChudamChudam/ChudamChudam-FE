@@ -9,6 +9,13 @@ import { useLetterStore } from '@/store/letterStore';
 import BottomSheet from '../drawer/BottomSheet';
 import { Button } from '@/components/ui/button';
 import { post } from '@/lib/axios';
+import localFont from 'next/font/local';
+import clsx from 'clsx';
+
+const myFont = localFont({
+  src: './gom.ttf',
+  display: 'swap',
+});
 
 export const Write = () => {
   const router = useRouter();
@@ -67,32 +74,31 @@ export const Write = () => {
     }
     const dataUrl = await toPng(resultRef.current, { includeQueryParams: true });
     console.log(dataUrl);
-    const file = base64toFile(dataUrl, 'chudom.img.png');
-    let formData = new FormData();
-    formData.append('file', file);
-    const submitRes = await post<FormData>(
-      '/letter',
-      {
-        formData,
-      },
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      },
-    );
-    console.log(submitRes);
-    if (submitRes) {
-      router.push(`/letter/${submitRes.data.get('letterId')}`);
-    }
+    // const file = base64toFile(dataUrl, 'chudom.img.png');
+    // let formData = new FormData();
+    // formData.append('letterImage', file);
+    // const submitRes = await post<FormData>(
+    //   '/letter',
+    //   {
+    //     formData,
+    //   },
+    //   {
+    //     headers: {
+    //       'Content-Type': 'multipart/form-data',
+    //     },
+    //   },
+    // );
+    // console.log(submitRes);
+    // TODO
+    // if (submitRes) {
+    //   router.push(`/letter/${submitRes.data?.['letterId']}`);
+    // }
+    router.push('/letter/test');
   };
 
   return (
     <>
-      <div
-        className="mt-6 w-full h-[448px] flex items-center justify-center relative"
-        ref={resultRef}
-      >
+      <div className="w-full h-[448px] flex items-center justify-center relative" ref={resultRef}>
         <Image
           src={selected}
           width={336}
@@ -100,12 +106,17 @@ export const Write = () => {
           alt="letter"
           className="object-cover w-[336px] h-[448px]"
         />
-        <div className="absolute top-[132px] left-[50%] -translate-x-1/2 w-[296px] h-[262px]">
+        <div
+          className={clsx(
+            'absolute top-[132px] left-[50%] -translate-x-1/2 w-[280px] h-[262px]',
+            myFont.className,
+          )}
+        >
           <div className="w-full h-[37px]py-2 px-4">To. {receiver}</div>
           <textarea
             className="w-full h-[166px] py-2 px-4 outline-none placeholder:text-gray-500 resize-none"
             placeholder="추억을 담은 편지를 작성해보세요"
-            maxLength={150}
+            maxLength={200}
             ref={inputRef}
             onChange={handleChange}
           />
