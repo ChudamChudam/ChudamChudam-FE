@@ -26,10 +26,6 @@ export const Write = () => {
   const resultRef = useRef<HTMLDivElement>(null);
   const [length, setLength] = useState(0);
   const [select, setSelect] = useState('font'); //내가 선택하고 있는 아이템이 무엇인지.?
-  const [fontItem, setFontItem] = useState<{ name: string; value: string }>({
-    name: '',
-    value: '',
-  });
 
   const handleSelectItemClick = (selectItem: string) => {
     setSelect(selectItem);
@@ -54,49 +50,13 @@ export const Write = () => {
     setLength(event.target.value.length);
   };
 
-  const b64toFile = (b64Data: string, filename: string) => {
-    const bstr = window.atob(b64Data);
-    let n = bstr.length;
-    const u8arr = new Uint8Array(n);
-
-    while (n > 0) {
-      n -= 1;
-      u8arr[n] = bstr.charCodeAt(n);
-    }
-
-    return new File([u8arr], filename, { type: 'image/png' });
-  };
-
   const handleSubmit = async () => {
     if (resultRef.current === null) {
       return;
     }
     const dataUrl = await toPng(resultRef.current, { includeQueryParams: true });
     setUrl(dataUrl);
-    router.push(`/letter/test`);
-    // console.log(dataUrl);
-
-    // const file = b64toFile(dataUrl, 'chudom.img.png');
-
-    // let formData = new FormData();
-    // formData.append('letterImage', file);
-    // const submitRes = await post<FormData>(
-    //   '/letter',
-    //   {
-    //     formData,
-    //   },
-    //   {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data',
-    //     },
-    //   },
-    // );
-    // console.log(submitRes);
-    // TODO
-    // if (submitRes) {
-    //   router.push(`/letter/${submitRes.data?.['letterId']}`);
-    // }
-    // router.push('/letter/test');
+    router.push(`/letter/1`);
   };
 
   return (

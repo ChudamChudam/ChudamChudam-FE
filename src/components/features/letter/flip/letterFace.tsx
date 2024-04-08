@@ -2,10 +2,10 @@
 
 import clsx from 'clsx';
 
-import styles from '@/components/features/letter/flip/letterFlip.module.css';
-import Image from 'next/image';
 import Envelop from '@/assets/images/letter/envelop.svg';
+import styles from '@/components/features/letter/flip/letterFlip.module.css';
 import { useLetterStore } from '@/store/letterStore';
+import Image from 'next/image';
 
 interface LetterFaceProps {
   side: 'front' | 'back';
@@ -14,7 +14,7 @@ interface LetterFaceProps {
 
 export const LetterFace = ({ side, imageUrl }: LetterFaceProps) => {
   const url = useLetterStore((state) => state.url);
-  // TODO: 편지를 작성한 데이터를 받아오면 다시 수정하기
+
   return (
     <div
       className={clsx(
