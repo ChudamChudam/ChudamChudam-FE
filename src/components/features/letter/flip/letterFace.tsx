@@ -20,7 +20,8 @@ export const LetterFace = ({ side, imageUrl }: LetterFaceProps) => {
       )}
     >
       {side === 'back' ? (
-        <Image width={336} height={448} src={imageUrl as string} alt="letter_result_image" />
+        // <Image width={336} height={448} src={imageUrl as string} alt="letter_result_image" />
+        side
       ) : (
         <Envelop />
       )}
