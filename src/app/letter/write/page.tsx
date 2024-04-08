@@ -28,7 +28,6 @@ import { post } from '@/lib/axios';
 
 const Page = () => {
   const router = useRouter();
- 
   const ref = useRef<HTMLDivElement>(null); // 이미지 찍을 div ref
   const [select, setSelect] = useState('font'); //내가 선택하고 있는 아이템이 무엇인지.?
   const [fontItem, setFontItem] = useState<{ name: string; value: string }>({
@@ -62,7 +61,7 @@ const Page = () => {
         break;
     }
   };
-  function base64toFile(base_data:any, filename:string) {
+  function base64toFile(base_data: any, filename: string) {
     let arr = base_data.split(','),
       mime = arr[0].match(/:(.*?);/)[1],
       bstr = atob(arr[1]),
@@ -83,13 +82,19 @@ const Page = () => {
     const file = base64toFile(dataUrl, 'chudom.img.png');
     let formData = new FormData();
     formData.append('file', file);
-    const submitRes = await post<FormData>('/api/letter', {
-      formData
-    },{headers: {
-     'Content-Type': 'multipart/form-data'
-    }});
+    const submitRes = await post<FormData>(
+      '/letter',
+      {
+        formData,
+      },
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      },
+    );
     if (submitRes) {
-      router.push('/letter/id')
+      router.push('/letter/id');
     }
   };
 
@@ -142,9 +147,9 @@ const Page = () => {
         />
 
         {/* <Link href={`/letter/id`} className="w-full"> */}
-          <Button onClick={() => handleSubmit()} variant="next">
-            완료
-          </Button>
+        <Button onClick={() => handleSubmit()} variant="next">
+          완료
+        </Button>
         {/* </Link> */}
       </div>
     </main>
