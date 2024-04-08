@@ -93,6 +93,7 @@ export const Write = () => {
     // if (submitRes) {
     //   router.push(`/letter/${submitRes.data?.['letterId']}`);
     // }
+    router.push('/letter/test');
   };
 
   return (
