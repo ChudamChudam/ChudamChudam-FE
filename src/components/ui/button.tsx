@@ -16,7 +16,7 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
         next: 'rounded-lg text-white bg-gray-700',
         nextError: 'rounded-lg text-white bg-gray-300',
-        yellow: 'rounded-lg bg-second-main',
+        yellow: 'rounded-lg bg-second-main opacity-70 hover:opacity-50',
         white: 'bg-gray-100 opacity-70 hover:opacity-50 text-gray-800',
         green: 'bg-green-main opacity-70 hover:opacity-50 text-gray-800',
       },
