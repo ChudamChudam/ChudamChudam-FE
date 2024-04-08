@@ -20,7 +20,7 @@ const BottomSheet = (props: DrawerProps) => {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button variant="yellow">폰트설정하기</Button>
+        <Button variant="yellow">편집하기</Button>
       </DrawerTrigger>
       <DrawerContent className=" bg-pink-sub w-[375px] h-[320px] mx-auto">
         <div className="mx-auto w-[375px]">
