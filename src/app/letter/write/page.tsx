@@ -9,6 +9,7 @@ const WritePage = () => {
       <Header prev />
       <StepProgressBar />
       <Description>추억을 담은 편지를 작성해보세요</Description>
+      <div className="w-full h-6" />
       <Write />
     </div>
   );
