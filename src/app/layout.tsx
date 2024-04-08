@@ -16,7 +16,9 @@ export const RootLayout = ({
   return (
     <html lang="ko">
       <body className={`${pretendard.variable}`}>
-        <div className="layout font-pretendard">{children}</div>
+        <div className="layout font-pretendard bg-[url('/letter-background.svg')] bg-cover">
+          {children}
+        </div>
       </body>
     </html>
   );

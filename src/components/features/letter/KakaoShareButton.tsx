@@ -35,7 +35,7 @@ const KakaoShareButton = () => {
   return (
     <Button
       onClick={handleSendMessage}
-      variant='share'
+      variant="green"
       //   Icon={<Icon icon="kakaotalk" color="gray-1000" />}
     >
       카카오톡 공유

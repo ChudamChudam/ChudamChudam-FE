@@ -1,7 +1,7 @@
-import OnboardingInputForm from "@/components/features/onboarding/OnboardingInputForm";
-import { Description } from "@/components/layout/description";
-import { Header } from "@/components/layout/header";
-import { StepProgressBar } from "@/components/layout/stepProgressBar";
+import OnboardingInputForm from '@/components/features/onboarding/OnboardingInputForm';
+import { Description } from '@/components/layout/description';
+import { Header } from '@/components/layout/header';
+import { StepProgressBar } from '@/components/layout/stepProgressBar';
 
 const OnboardingPage = () => {
   return (
@@ -9,7 +9,6 @@ const OnboardingPage = () => {
       <Header prev />
       <StepProgressBar />
       <Description>누구에게 편지를 쓰나요?!</Description>
-
       <OnboardingInputForm />
     </main>
   );

@@ -17,27 +17,27 @@ const OnboardingInputForm = () => {
   return (
     <section className="flex flex-col gap-8 pt-7">
       <div>
-        <Label className="text-gray-500">TO.</Label>
+        <Label className="text-gray-700">TO.</Label>
         <Input
           placeholder="받는 이의 이름을 알려주세요."
           value={receiver}
           onChange={(e) => updateReceiver(e.target.value)}
-          className="placeholder:text-gray-400 bg-second-sub border-0"
+          className="placeholder:text-gray-100 bg-transparent border-dashed border-gray-600"
         />
       </div>
       <div>
-        <Label className="text-gray-500">FROM.</Label>
+        <Label className="text-gray-700">FROM.</Label>
         <Input
           value={sender}
           placeholder="당신의 이름을 알려주세요."
           onChange={(e) => updateSender(e.target.value)}
-          className="placeholder:text-gray-400 bg-second-sub border-0"
+          className="placeholder:text-gray-100 bg-transparent border-dashed border-gray-600"
         />
       </div>
 
       <Button
-        variant="secondary"
-        className={`absolute bottom-5 w-full ${!isAllValid && 'cursor-not-allowed opacity-50'}`}
+        variant={`${isAllValid ? 'green' : 'white'}`}
+        className={`absolute bottom-5 w-full ${!isAllValid && 'cursor-not-allowed'}`}
         onClick={() => {
           isAllValid && router.push('letter/select');
         }}

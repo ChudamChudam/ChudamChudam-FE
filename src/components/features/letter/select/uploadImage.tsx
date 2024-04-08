@@ -27,12 +27,18 @@ export function UploadImage() {
     <>
       <label
         htmlFor="upload"
-        className="cursor-pointer font-semibold flex flex-col gap-2 items-center justify-center"
+        className="cursor-pointer font-semibold flex flex-col gap-2 items-center justify-center w-full h-full"
       >
         <Save />
-        <p className="text-gray-500">불러오기</p>
+        <p className="text-gray-700">불러오기</p>
       </label>
-      <input type="file" id="upload" className="hidden" accept="image/*" onChange={handleUpload} />
+      <input
+        type="file"
+        id="upload"
+        className="hidden w-full h-full"
+        accept="image/*"
+        onChange={handleUpload}
+      ></input>
     </>
   );
 }
