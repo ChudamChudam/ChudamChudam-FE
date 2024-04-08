@@ -36,8 +36,8 @@ const OnboardingInputForm = () => {
       </div>
 
       <Button
-        variant="secondary"
-        className={`absolute bottom-5 w-full ${!isAllValid && 'cursor-not-allowed opacity-50'}`}
+        variant={`${isAllValid ? 'green' : 'white'}`}
+        className={`absolute bottom-5 w-full ${!isAllValid && 'cursor-not-allowed'}`}
         onClick={() => {
           isAllValid && router.push('letter/select');
         }}
